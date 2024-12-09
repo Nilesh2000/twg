@@ -51,3 +51,7 @@ Some Caveats:-
 - `export_test.go` to access unexported variables in external tests.
 - `xxx_internal_test.go` for internal tests.
 - `example_xxx_test.go` for examples in an isolated files.
+
+Function name should preferably be of the format func Test(t *testing.T) {}
+You could also write separate test functions for different if-statements in our code.
+We will learn table-driven tests in the future as another approach towards such situations.
