@@ -26,3 +26,14 @@ Use code coverage to measure what percentage of your code is tested.
 Use it cautiously since it might sometimes be deceptive.
 
 Tests are just go code.
+
+Test file names must be of the format *_test.go
+This tells go to not use these files for builds that are not tests.
+
+The test function name should be Test*(t *testing.T). * refers to the name of the function you want to test.
+It should start with uppercase letter.
+
+testing.T must be passed in every function that is a test.
+This allows you tell Go when to pass a test, skip a test, or fail a test.
+
+t.Errorf allows you to tell Go that you have failed a test case.
