@@ -39,4 +39,15 @@ This allows you tell Go when to pass a test, skip a test, or fail a test.
 t.Errorf allows you to tell Go that you have failed a test case.
 
 When you run `go test`, go is building a binary using all the _test.go files.
-This binary is then executed. At the end of the tool, it cleans up the binary and related artifacts
+This binary is then executed. At the end of the tool, it cleans up the binary and related artifacts.
+
+File Naming Conventions
+File name must be *_test.go.
+When you do `go build`, the go compiler does not include *_test.go files in the executable binary.
+Typically, you have a source and a source_test.go file.
+This is not mandatory, but its a convention.
+
+Some Caveats:-
+- `export_test.go` to access unexported variables in external tests.
+- `xxx_internal_test.go` for internal tests.
+- `example_xxx_test.go` for examples in an isolated files.
