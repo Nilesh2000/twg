@@ -55,3 +55,8 @@ Some Caveats:-
 Function name should preferably be of the format func Test(t *testing.T) {}
 You could also write separate test functions for different if-statements in our code.
 We will learn table-driven tests in the future as another approach towards such situations.
+
+Variable name should usually be `got` and `want` inside test functions.
+Some people also use `arg` to specify the function arguments.
+
+> %q formats a string with quotes. "hello" is printed as "hello" in printf statements.
