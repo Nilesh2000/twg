@@ -37,3 +37,6 @@ testing.T must be passed in every function that is a test.
 This allows you tell Go when to pass a test, skip a test, or fail a test.
 
 t.Errorf allows you to tell Go that you have failed a test case.
+
+When you run `go test`, go is building a binary using all the _test.go files.
+This binary is then executed. At the end of the tool, it cleans up the binary and related artifacts
