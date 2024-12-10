@@ -85,3 +85,16 @@ Which you use?
 If not using subtests, Fatal will other tests in the function from running.
 
 httptest.NewRecorder() is a fake response writer that we can pass into our method to see if the handler is working correctly or not.
+
+The purpose of a test is to debug an issue quickly.
+You want to see what went wrong and then how to fix it.
+
+Standard to check variables during a test
+if got != want
+if actual != expected
+Also, while logging errors, print what you got first and then what you expected.
+
+Make it simple to recreate your failures to help you fix code that causes your tests to fail.
+
+We can use Fatal more frequently when using subtests becuase ending a subtest immeditely doesn't actually stop the rest of the subtests from running.
+This gives you freedom to exit the test whenever you want while simultaneously allowing us more control on what tests continue to run.

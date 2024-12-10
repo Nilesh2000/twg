@@ -12,7 +12,7 @@ func TestHandler(t *testing.T) {
 	w := httptest.NewRecorder()
 	r, err := http.NewRequest(http.MethodGet, "", nil)
 	if err != nil {
-		t.Fatalf("http.NewRequest() err = %s", err)
+		t.Fatalf("http.NewRequest(GET, \"\", nil) err = %s", err)
 	}
 	Handler(w, r)
 
@@ -45,5 +45,9 @@ func TestHandler(t *testing.T) {
 	wantName := "Jon Calhoun"
 	if p.Name != wantName {
 		t.Errorf("person.Name = %s; want %s", p.Name, wantName)
+	}
+
+	if err != nil {
+		t.Fatalf("SomeFunc(name=%s, age=%d)", p.Name, p.Age)
 	}
 }
