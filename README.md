@@ -98,3 +98,7 @@ Make it simple to recreate your failures to help you fix code that causes your t
 
 We can use Fatal more frequently when using subtests becuase ending a subtest immeditely doesn't actually stop the rest of the subtests from running.
 This gives you freedom to exit the test whenever you want while simultaneously allowing us more control on what tests continue to run.
+
+You can write example as test cases and can them view them on the documentation.
+This is extremely powerful becuase if your examples fail, you will see them on your terminal as a test failure.
+They are implemented exactly the same way as tests, but just have a Example prefix instead. Also, you have to add an // Output command
