@@ -83,3 +83,5 @@ Which you use?
 - If a test is completely over and running won't help at all, use `Fatal()`/`Fatalf()`
 
 If not using subtests, Fatal will other tests in the function from running.
+
+httptest.NewRecorder() is a fake response writer that we can pass into our method to see if the handler is working correctly or not.
