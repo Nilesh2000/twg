@@ -60,3 +60,26 @@ Variable name should usually be `got` and `want` inside test functions.
 Some people also use `arg` to specify the function arguments.
 
 > %q formats a string with quotes. "hello" is printed as "hello" in printf statements.
+
+When you write tests, you need a way to signal test failure.
+
+The `testing.T` type has a `Log` and `Logf` package. These work similar to `Print` and `Printf` in the `fmt` package.
+`Logf` allows you to pass formatted messages.
+However, `Log` and `Logf` and only printed when a test fails or when you run tests via `go test -v`.
+Not recommented to use `fmt.Println` becuase it prints at the top and hence does not help in debugging.
+
+These are two basic ways to signal that a test has failed:-
+- `t.Fail()` = fail, but keep running
+- `t.FailNow()` = fail now and stop test
+
+You will rarely see the above being called:-
+- `Fatal()` - `Log()` + `FailNow()`
+- `Fatalf()` - `Logf()` + `FailNow()`
+- `Error()` - `Log()` + `Fail()`
+- `Errorf()` - `LogF()` + `Fail()`
+
+Which you use?
+- If you can keep test running, use `Error()`/`Errorf()`
+- If a test is completely over and running won't help at all, use `Fatal()`/`Fatalf()`
+
+If not using subtests, Fatal will other tests in the function from running.
