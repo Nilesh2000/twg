@@ -116,3 +116,8 @@ You can add a comment at the top of a file (before package) to see it under over
 
 When you want to show an example in an unordered fashion.
 Use // Unordered Output instead of // Output in the Example method.
+
+If your example has multiple imports and stuff that is too large for a test files, move it to a separate Go file altogether.
+The file name should be example_<func>_test.go. You should probably use example_test as the package name to express isolation.
+To ensure it shows up on go doc along with its imports, your example file should have some sort of type or variable defined.
+Examples help make things very clear in Golang.
