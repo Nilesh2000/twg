@@ -113,3 +113,6 @@ func ExampleDemo_Text()
 func Example_text() - Provide specific names to the examples
 
 You can add a comment at the top of a file (before package) to see it under overview on the Go documentation
+
+When you want to show an example in an unordered fashion.
+Use // Unordered Output instead of // Output in the Example method.
