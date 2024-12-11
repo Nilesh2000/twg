@@ -102,3 +102,14 @@ This gives you freedom to exit the test whenever you want while simultaneously a
 You can write example as test cases and can them view them on the documentation.
 This is extremely powerful becuase if your examples fail, you will see them on your terminal as a test failure.
 They are implemented exactly the same way as tests, but just have a Example prefix instead. Also, you have to add an // Output command
+
+Lets say you have a struct Demo. You write a receiver method func (d Demo) Hello() on it.
+Then, the test will be defined as func TestDemo_Hello()
+
+Similar for example to show up on documentation, use
+func Example()
+func ExampleTest()
+func ExampleDemo_Text()
+func Example_text() - Provide specific names to the examples
+
+You can add a comment at the top of a file (before package) to see it under overview on the Go documentation

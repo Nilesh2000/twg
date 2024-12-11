@@ -2,7 +2,7 @@ package example
 
 import "fmt"
 
-func ExampleHello() {
+func ExampleDemo_Hello() {
 	greeting, err := Hello("Jon")
 	if err != nil {
 		panic(err)
