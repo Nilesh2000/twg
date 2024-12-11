@@ -121,3 +121,5 @@ If your example has multiple imports and stuff that is too large for a test file
 The file name should be example_<func>_test.go. You should probably use example_test as the package name to express isolation.
 To ensure it shows up on go doc along with its imports, your example file should have some sort of type or variable defined.
 Examples help make things very clear in Golang.
+
+Look at the standard library on how to write examples.
