@@ -131,3 +131,13 @@ You can also setup Table Driven Tests for a single test. This makes it extensibl
 t.Run() is how you initiate a subtest.
 [gotests](https://github.com/cweill/gotests) is the package used by code editor to generate table driven tests in go.
 
+
+You can also do nested subtests.
+Each subtest can run a smaller subtests while nesting.
+
+You don't have to use just anonymous structs for Table Driven Tests.
+You can also use map[string]struct.
+
+Using t.Fatalf in subtests allows you to fail a particular row in a table driven tests but continue with the others seamlessly.
+This is very useful when you have multiple checks for a single row in a given table driven test.
+This is a massive benefit of subtests since you have fine grained control of what tests you can run.

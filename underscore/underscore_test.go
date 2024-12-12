@@ -5,23 +5,28 @@ import (
 )
 
 func TestCamel(t *testing.T) {
-	type args struct {
-		str string
-	}
-	tests := []struct {
-		name string
-		args args
+	tests := map[string]struct {
+		got  string
 		want string
 	}{
-		{"simple", args{"thisIsACamelCaseString"}, "this_is_a_camel_case_string"},
-		{"spaces", args{"with a space"}, "with a space"},
-		{"ends with capital", args{"endsWithA"}, "ends_with_a"},
+		"simple":            {"thisIsACamelCaseString", "this_is_a_camel_case_string"},
+		"spaces":            {"with a space", "with a space1"},
+		"ends with capital": {"endsWithA", "ends_with_a"},
+		"single capital":    {"A", "_a"},
+		"all capitals":      {"ALLCAPS", "_a_l_l_c_a_p_s"},
+		"empty string":      {"", ""},
+		"no capitals":       {"nocapitals", "nocapitals"},
 	}
+
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Camel(tt.args.str); got != tt.want {
-				t.Errorf("Camel() = %v, want %v", got, tt.want)
-			}
+		t.Run(tt.got, func(t *testing.T) {
+			testCamelHelper(t, tt.got, tt.want)
 		})
+	}
+}
+
+func testCamelHelper(t *testing.T, input, expected string) {
+	if got := Camel(input); got != expected {
+		t.Errorf("Camel() = %v, want %v", got, expected)
 	}
 }
