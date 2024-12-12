@@ -127,3 +127,7 @@ Look at the standard library on how to write examples.
 Table Driven Tests are a design pattern that allow you to have multiple tests for the same method without repeating a lot of code.
 Use tt / tc for iterating over table-driven tests.
 You can also setup Table Driven Tests for a single test. This makes it extensible and makes it simple to add more tests in the near future.
+
+t.Run() is how you initiate a subtest.
+[gotests](https://github.com/cweill/gotests) is the package used by code editor to generate table driven tests in go.
+
