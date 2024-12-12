@@ -146,3 +146,13 @@ Use setup() and teardown() when you have to setup some common stuff everytime yo
 An extremly common example is running tests on a database, where you have to connect to a database every time.
 
 Table Driven Tests + SubTests + Setup and Teardown combination is extremely powerful.
+
+TestMain() is a special case that will be called before all your functions are called.
+It serves purposes like:-
+1. Reading custom flags from the console.
+2. Setup anything you need.
+3. You need to explicity tell tests to run if you add TestMain() to your program
+
+os.Exit() stops your functions immediately. It does not allow even defer() methods to run.
+You should you use a shared setup and teardown if your tests take time to run (database).
+Else you should run setup() and teardown() on each test.

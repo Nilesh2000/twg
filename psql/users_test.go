@@ -3,13 +3,21 @@ package psql
 import (
 	"database/sql"
 	"fmt"
+	"os"
 	"reflect"
 	"testing"
 
 	_ "github.com/lib/pq"
 )
 
-func TestUserStore(t *testing.T) {
+func TestMain(m *testing.M) {
+	// 0. flag.Parse() if you need flags
+	// 1. setup
+	exitCode := run(m)
+	os.Exit(exitCode)
+}
+
+func run(m *testing.M) int {
 	const (
 		dropDB          = `DROP DATABASE IF EXISTS test_user_store;`
 		createDB        = `CREATE DATABASE test_user_store;`
@@ -20,7 +28,7 @@ func TestUserStore(t *testing.T) {
 											 );`
 	)
 
-	psql, err := sql.Open("postgres", "host=localhost port=5432 user=admin sslmode=disable")
+	psql, err := sql.Open("postgres", "host=localhost port=5432 user=jon sslmode=disable")
 	if err != nil {
 		panic(fmt.Errorf("sql.Open() err = %s", err))
 	}
@@ -42,7 +50,7 @@ func TestUserStore(t *testing.T) {
 		}
 	}()
 
-	db, err := sql.Open("postgres", "host=localhost port=5432 user=admin sslmode=disable dbname=test_user_store")
+	db, err := sql.Open("postgres", "host=localhost port=5432 user=jon sslmode=disable dbname=test_user_store")
 	if err != nil {
 		panic(fmt.Errorf("sql.Open() err = %s", err))
 	}
@@ -52,7 +60,11 @@ func TestUserStore(t *testing.T) {
 		panic(fmt.Errorf("db.Exec() err = %s", err))
 	}
 
-	db, err = sql.Open("postgres", "host=localhost port=5432 user=admin sslmode=disable dbname=test_user_store")
+	return m.Run()
+}
+
+func TestUserStore(t *testing.T) {
+	db, err := sql.Open("postgres", "host=localhost port=5432 user=jon sslmode=disable dbname=test_user_store")
 	if err != nil {
 		panic(fmt.Errorf("sql.Open() err = %s", err))
 	}
