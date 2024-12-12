@@ -141,3 +141,8 @@ You can also use map[string]struct.
 Using t.Fatalf in subtests allows you to fail a particular row in a table driven tests but continue with the others seamlessly.
 This is very useful when you have multiple checks for a single row in a given table driven test.
 This is a massive benefit of subtests since you have fine grained control of what tests you can run.
+
+Use setup() and teardown() when you have to setup some common stuff everytime you run a test in a package.
+An extremly common example is running tests on a database, where you have to connect to a database every time.
+
+Table Driven Tests + SubTests + Setup and Teardown combination is extremely powerful.
